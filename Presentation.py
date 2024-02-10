@@ -12,10 +12,9 @@ def run():
     st.write("# London Fire Brigade Project")
 
     st.write("La brigade des pompiers de Londres, comme mentionné dans la fiche projet est l’une des plus grandes au monde.")
-    st.write("Dans le cadre de notre projet de recherche, nous devrons estimer et analyser les temps de réponse et d’intervention")
-    st.write("de la brigade.") 
-    st.write("Les sources de données utilisées pour répondre à cette problématique proviennent du site ‘London Datastore’")
-    st.write("et sont rafraichies sur une base mensuelle. Elles fournissent le détail des incidents traités depuis janvier 2009.") 
+    st.write("Dans le cadre de notre projet de recherche, nous devrons estimer et analyser les temps de réponse et d’intervention de la brigade.") 
+    st.write("Les sources de données utilisées pour répondre à cette problématique proviennent du site ‘London Datastore’ et sont rafraichies sur une base mensuelle.")
+    st.write("Elles fournissent le détail des incidents traités depuis janvier 2009.") 
 
 
     st.sidebar.success("Select a demo above.")
