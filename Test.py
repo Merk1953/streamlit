@@ -3,6 +3,15 @@ from streamlit.logger import get_logger
 
 LOGGER = get_logger(__name__)
 
+import streamlit as st
+
+
+PORT = 36611
+
+# Configurer Streamlit
+st.set_option('server.port', PORT)
+
+
 def run():
     st.set_page_config(
         page_title="London Fire Brigade Project",
