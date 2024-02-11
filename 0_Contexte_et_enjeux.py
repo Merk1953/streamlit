@@ -27,8 +27,11 @@ def run():
             À travers cette étude, nous cherchons à mieux comprendre les dynamiques opérationnelles de la Brigade des Pompiers de 
              Londres afin d'optimiser ses interventions et de renforcer sa capacité à répondre efficacement aux situations d'urgence. 
 """)
-    #st.sidebar.success("Agenda")
+    st.sidebar.success("Agenda")
 
+    import streamlit as st
+
+        
     st.markdown(
         """
         ### Sources des données : London Datastore
@@ -37,6 +40,8 @@ def run():
         
     """
     )
+
+    
 
 
 if __name__ == "__main__":

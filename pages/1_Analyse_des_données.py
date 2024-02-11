@@ -19,6 +19,17 @@ import numpy as np
 import streamlit as st
 from streamlit.hello.utils import show_code
 
+onglet_selectionne = st.sidebar.radio("Navigation", ["Onglet 1", "Onglet 2", "Onglet 3"])
+
+    # Contenu de chaque onglet
+    if onglet_selectionne == "Onglet 1":
+        st.write("Contenu de l'onglet 1")
+
+    elif onglet_selectionne == "Onglet 2":
+        st.write("Contenu de l'onglet 2")
+
+    else:
+        st.write("Contenu de l'onglet 3")
 
 def animation_demo() -> None:
 
