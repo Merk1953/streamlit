@@ -1,0 +1,23 @@
+﻿﻿Nom champ,Description ,Exemple,Type de données,Is na ,Description DS
+IncidentNumber,LFB Incident Number,000008-01012018,object,N,Clé unique d incident 
+CalYear,Year of 999 call,2018,int64,N,Année d appel 
+HourOfCall,Hour of 999 call,3,int64,N,Heure d appel 
+ResourceMobilisationId,LFB Resource Mobilisation ID,5055153,int64,N,Id des ressources mobilisées 
+Resource_Code,LFB Resource Code,A392,object,N,Code des ressources utilisées 
+PerformanceReporting,First Pump arrived at incident,1,object,N,Premier camion arrivé sur les lieux de l incident 1ère secondaire ou non utilisée
+DateAndTimeMobilised,Date and time of mobilised (GMT),01/01/2018 00:04,object,N,Date et heure de mobilisation 
+DateAndTimeMobile,Date and time of mobile (GMT),01/01/2018 00:05,object,N,Date et heure à laquelle les pompiers se sont effectivement mobilisés
+DateAndTimeArrived,Date and time arrived (GMT),01/01/2018 00:10,object,N,Date d arrivée 
+TurnoutTimeSeconds,Turnout time in seconds,73,float64,N,Temps entre le moment où la caserne est alertée et le moment où les pompiers partent en intervention
+TravelTimeSeconds,Travel time in seconds,275,float64,N,Temps de trajet
+AttendanceTimeSeconds,Attendance time in seconds,348,int64,N,Temps d intervention 
+DateAndTimeLeft,Date and time left the incident (GMT),01/01/2018 00:16,object,N,Date à laquelle le lieu de l incident a été quitté par les pompiers
+DateAndTimeReturned,Date and time returned to station (GMT),43101.0158,object,Y,Date et heure de retour à la station 
+DeployedFromStation_Code,Deployed from station code,A39,object,N,Code de la station doù les pompiers ont été déployés
+DeployedFromStation_Name,Deployed from station name,Finchley,object,N,Nom de la station d où les pompiers ont été déployés
+DeployedFromLocation,Deployed from location,Home Station,object,N,Station home autre station ou vide
+PumpOrder,Pump order,1,int64,N,Ordre du camion de pompiers
+PlusCode_Code,Code of Plus Code,Initial,object,N,Code du plus code
+PlusCode_Description,Description of Plus Code,Initial Mobilisation,object,N,Description du plus code
+DelayCodeId,Delay code ID,9,float64,Y,Code de retard
+DelayCode_Description,Delay code description,Traffic roadworks  etc,object,Y,Description du retard 

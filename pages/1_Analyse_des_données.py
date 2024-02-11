@@ -31,16 +31,14 @@ st.write(
 """
 )
 
-chemin_dossier = "C:/Users/rymat"
-nom_fichier_inc = "Incidents_dico.csv"
-chemin_fichier_inc = os.path.join(chemin_dossier, nom_fichier_inc)
-
 
 onglet_selectionne = st.sidebar.radio("Dictionnaires", ["Incidents", "Mobilisations"])
 if onglet_selectionne == "Incidents":
     st.write("#### Contenu du dictionnaire des Incidents")
-    df_inc = pd.read_csv("Incidents_dico.csv")
-#st.table(df_inc)
+    st.dataframe(pd.read_csv("Data/Incidents_dico.csv", index_col=0))
+
 if onglet_selectionne == "Mobilisations":
     st.write("#### Contenu du dictionnaire des Mobilisations")
+    st.dataframe(pd.read_csv("Data/Mobilisations_dico.csv", index_col=0))
+
 
