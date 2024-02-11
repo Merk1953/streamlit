@@ -1,0 +1,39 @@
+﻿Nom champ;Description ;Exemple;Type de données;Is na ;Description DS
+IncidentNumber;LFB Incident Number;000008-01012018;object;N;Clé unique d incident 
+DateOfCall;Date of 999 call;01-janv-18;object;N;Date de l appel 
+CalYear;Year of 999 call;2018;int64;N;Année de l appel 
+TimeOfCall;Time of 999 call;00:04:25;object;N;Heure de l appel 
+HourOfCall;Hour of 999 call;0;int64;N;Extraction de l heure seulement 
+IncidentGroup;High level incident category;False Alarm;object;N;Groupe d incident : Feu. Fausse alarme ou Service spécial 
+StopCodeDescription;Detailed incident category;AFA;object;N;Détails supplémentaires pour les services spéciaux  
+SpecialServiceType;Further detail for special services incident categories;;object;Y;Détails supplémentaires pour les groupes d incidents 
+PropertyCategory;High level property descriptor;Non Residential;object;N;Type de propriété 
+PropertyType;Detailed property descriptor;Mosque ;object;N;Détail sur les types de propriétés ici
+AddressQualifier;Qualifies location of actual incident relevant to category above;Within same building;object;N;Description du lieu de l incident
+Postcode_full;Postcode;N2 8AY;object;Y;Code postal entier
+Postcode_district;Postcode Districs;N2;object;N;Premiers chiffres du CP
+UPRN;Unique Property Reference Number;200220110;float64;N;Réf unique de l endroit où se trouve la propriété 
+USRN;Unique Street Reference Number;20013420;float64;N;Réf unique de la rue où se trouve la propriété 
+IncGeo_BoroughCode;Borough Code;E09000003;object;N;Code de quartier
+IncGeo_BoroughName;Borough Name;BARNET;object;N;Nom de quartier 
+ProperCase;Borough Name;Barnet;object;N;Même chose que précédemment mais en letter case différent
+IncGeo_WardCode;Ward Code;E05000049;object;N;Code de circonscription
+IncGeo_WardName;Ward Name;EAST FINCHLEY;object;N;Nom de la circonscription
+IncGeo_WardNameNew;New Ward Name;EAST FINCHLEY;object;N;Même chose que précédemment 
+Easting_m;Easting;527184;float64;Y;Ligne divisant le plan de la ville de haut en bas
+Northing_m;Northing;189488;float64;Y;Ligne divisant le plan de la ville de gauche à droite
+Easting_rounded;Easting rounded up to nearest 50;527150;int64;?;Code Easting arrondi 
+Northing_rounded;Northing rounded up to nearest 50;189450;int64;?;Code Northing arrondi
+Latitude;Latitude;51.58990022;float64;Y;Latitude 
+Longitude;Longitude;0.165452578;float64;Y;Longitude
+FRS;Fire Service ground;London;object;N;Londres
+IncidentStationGround;LFB Station ground;Finchley;object;N;Station de laquelle partent les pompiers
+FirstPumpArriving_AttendanceTime;First Pump attendance time in seconds;348;float64;Y;Temps de présence du premier camion de pompiers en secondes
+FirstPumpArriving_DeployedFromStation;First Pump deployed from station;Finchley;object;N;Station de laquelle arrive le premier camion de pompiers
+SecondPumpArriving_AttendanceTime;Second Pump attendance time in seconds;;float64;N;Temps de présence du second camion de pompiers en secondes
+SecondPumpArriving_DeployedFromStation;Second Pump deployed from station;;object;Y;Station à partir de laquelle le 2ème camion de pompiers part aide supplémentaire 
+NumStationsWithPumpsAttending;Number of stations with pumps in attendance;1;float64;N;Nombre de stations avec des camions de pompiers en service 
+NumPumpsAttending;Number of pumps in attendance;1;float64;N;Nombre de camions de pompiers en service
+PumpCount;;1;int64;N;Nombre de camions en service
+PumpHoursRoundUp;Time spent at incident by pumps. rounded up to nearest hour;1;int64;N;Temps passé sur les lieux de l incident par les pompes
+Notional Cost (£);Time spent multiplied by notional annual cost of a pump;328;int64;N;Temps passé multiplié par le coût annuel théorique d une pompe

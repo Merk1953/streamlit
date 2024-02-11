@@ -29,9 +29,7 @@ def run():
 """)
     st.sidebar.success("Agenda")
 
-    import streamlit as st
-
-        
+           
     st.markdown(
         """
         ### Sources des données : London Datastore
