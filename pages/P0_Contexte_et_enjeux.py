@@ -1,9 +1,9 @@
 import streamlit as st
 from streamlit.logger import get_logger
 
-LOGGER = get_logger(__name__)
 
-def run():
+
+def contexte():
     st.set_page_config(
         page_title="London Fire Brigade Project",
         page_icon="🎆",
@@ -36,9 +36,6 @@ def run():
         
     """
     )
+contexte()
 
-    
 
-
-if __name__ == "__main__":
-    run()

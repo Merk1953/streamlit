@@ -21,6 +21,7 @@ from streamlit.hello.utils import show_code
 
 
 def plotting_demo():
+    st.set_page_config(page_title="Plotting Demo", page_icon="📝")
     progress_bar = st.sidebar.progress(0)
     status_text = st.sidebar.empty()
     last_rows = np.random.randn(1, 1)
@@ -42,7 +43,7 @@ def plotting_demo():
     st.button("Re-run")
 
 
-st.set_page_config(page_title="Plotting Demo", page_icon="📝")
+
 st.markdown("# Plotting Demo")
 st.sidebar.header("Plotting Demo")
 st.write(

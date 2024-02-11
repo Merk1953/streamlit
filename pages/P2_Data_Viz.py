@@ -22,6 +22,7 @@ from streamlit.hello.utils import show_code
 
 
 def mapping_demo():
+    st.set_page_config(page_title="Data Viz", page_icon="🖥️")
     @st.cache_data
     def from_data_file(filename):
         url = (
@@ -103,7 +104,7 @@ def mapping_demo():
         )
 
 
-st.set_page_config(page_title="Data Viz", page_icon="🖥️")
+
 st.markdown("# Mapping Demo")
 st.sidebar.header("Data Viz")
 st.write(

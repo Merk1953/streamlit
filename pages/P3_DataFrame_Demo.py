@@ -22,6 +22,7 @@ from streamlit.hello.utils import show_code
 
 
 def data_frame_demo():
+    st.set_page_config(page_title="DataFrame Demo", page_icon="📉")
     @st.cache_data
     def get_UN_data():
         AWS_BUCKET_URL = "https://streamlit-demo-data.s3-us-west-2.amazonaws.com"
@@ -64,7 +65,7 @@ def data_frame_demo():
         )
 
 
-st.set_page_config(page_title="DataFrame Demo", page_icon="📉")
+
 st.markdown("# DataFrame Demo")
 st.sidebar.header("DataFrame Demo")
 st.write(
