@@ -1,4 +1,4 @@
-﻿﻿Nom champ,Description ,Exemple,Type de données,Is na ,Description DS
+﻿Nom champ,Description ,Exemple,Type de données,Is na ,Description DS
 IncidentNumber,LFB Incident Number,000008-01012018,object,N,Clé unique d incident 
 CalYear,Year of 999 call,2018,int64,N,Année d appel 
 HourOfCall,Hour of 999 call,3,int64,N,Heure d appel 

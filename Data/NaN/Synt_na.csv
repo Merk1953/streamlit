@@ -1,0 +1,23 @@
+﻿Variable,Raison pour laquelle elle est supprimée,Table source
+Easting_m,Valeurs manquantes > 40%,Incidents
+Easting_rounded,Suppression car dépendante de la variable précédente + inconsistence avec la précédente variable,Incidents
+Northing_m,Valeurs manquantes > 40%,Incidents
+Northing_rounded,Suppression car dépendante de la variable précédente,Incidents
+SpecialServiceType,Valeurs manquantes > 40%,Incidents
+SecondPumpArriving_DeployedFromStation,Valeurs manquantes > 40%,Incidents
+SecondPumpArriving_AttendanceTime,Valeurs manquantes > 40%,Incidents
+Postcode_full,Valeurs manquantes > 40%,Incidents
+Latitude,Valeurs manquantes > 40%,Incidents
+UPRN,"Référence unique du secteur où se trouve la propriété. Trop grande granularité, un quartier 
+permettrait de caractériser une zone alors qu'une référence unique d'un endroit non.",Incidents
+USRN,Même raison,Incidents
+IncGeo_BoroughName,Identique à la variable ProperCase,Incidents
+IncGeo_WardCode,"On a déjà des infos par quartier. La circonscription est redondante avec les autres variables de 
+quartier.",Incidents
+IncGeo_WardName,Même raison,Incidents
+IncGeo_WardNameNew,Même raison,Incidents
+FRS,Valeur unique : Londres,Incidents
+Longitude,Valeurs manquantes > 40%,Incidents
+DateAndTimeReturned,Valeurs manquantes > 40%,Mobilisations
+DelayCodeId,Valeurs manquantes > 40%,Mobilisations
+DelayCode_Description,Valeurs manquantes > 40%,Mobilisations

@@ -6,7 +6,7 @@ TimeOfCall,Time of 999 call,00:04:25,object,N,Heure de l appel
 HourOfCall,Hour of 999 call,0,int64,N,Extraction de l heure seulement 
 IncidentGroup,High level incident category,False Alarm,object,N,Groupe d incident : Feu. Fausse alarme ou Service spécial 
 StopCodeDescription,Detailed incident category,AFA,object,N,Détails supplémentaires pour les services spéciaux  
-SpecialServiceType,Further detail for special services incident categories,,object,Y,Détails supplémentaires pour les groupes d incidents 
+SpecialServiceType,Further detail for special services incident categories,Lift Release,object,Y,Détails supplémentaires pour les groupes d incidents 
 PropertyCategory,High level property descriptor,Non Residential,object,N,Type de propriété 
 PropertyType,Detailed property descriptor,Mosque ,object,N,Détail sur les types de propriétés ici
 AddressQualifier,Qualifies location of actual incident relevant to category above,Within same building,object,N,Description du lieu de l incident
@@ -31,7 +31,7 @@ IncidentStationGround,LFB Station ground,Finchley,object,N,Station de laquelle p
 FirstPumpArriving_AttendanceTime,First Pump attendance time in seconds,348,float64,Y,Temps de présence du premier camion de pompiers en secondes
 FirstPumpArriving_DeployedFromStation,First Pump deployed from station,Finchley,object,N,Station de laquelle arrive le premier camion de pompiers
 SecondPumpArriving_AttendanceTime,Second Pump attendance time in seconds,,float64,N,Temps de présence du second camion de pompiers en secondes
-SecondPumpArriving_DeployedFromStation,Second Pump deployed from station,,object,Y,Station à partir de laquelle le 2ème camion de pompiers part aide supplémentaire 
+SecondPumpArriving_DeployedFromStation,Second Pump deployed from station,New Cross,object,Y,Station à partir de laquelle le 2ème camion de pompiers part aide supplémentaire 
 NumStationsWithPumpsAttending,Number of stations with pumps in attendance,1,float64,N,Nombre de stations avec des camions de pompiers en service 
 NumPumpsAttending,Number of pumps in attendance,1,float64,N,Nombre de camions de pompiers en service
 PumpCount,,1,int64,N,Nombre de camions en service

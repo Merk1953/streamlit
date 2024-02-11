@@ -9,9 +9,7 @@ def run():
         page_icon="🎆",
     )
 
-    path = "C:/Users/rymat/Documents/Data London/LFB image.png"
-    st.image(path, caption='Fire Brigade in action', use_column_width=True)
-
+    st.image("Images/LFB_image.png", caption='Fire Brigade in action', use_column_width=True) 
     st.write("# London Fire Brigade Project")
 
     st.write("""

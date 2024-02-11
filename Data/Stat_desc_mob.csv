@@ -1,0 +1,9 @@
+﻿Statistiques,CalYear,HourOfCall,TurnoutTimeSeconds,TravelTimeSeconds,AttendanceTimeSeconds,PumpOrder
+count, 2 156 847 , 2 156 847 , 2 156 847 , 2 156 847 , 2 156 847 , 2 156 847 
+mean, 2 016 , 13 , 79 , 274 , 353 , 1 
+std, 4 , 6 , 44 , 151 , 153 , 1 
+min, 2 009 , -   , -   , -   , 1 , 1 
+25%, 2 012 , 9 , 54 , 173 , 252 , 1 
+50%, 2 016 , 14 , 73 , 247 , 326 , 1 
+75%, 2 020 , 19 , 96 , 342 , 421 , 2 
+max, 2 023 , 23 , 1 192 , 1 198 , 1 200 , 13 
