@@ -9,31 +9,32 @@ def run():
         page_icon="🎆",
     )
 
+    path = "C:/Users/rymat/Documents/Data London/LFB image.png"
+    st.image(path, caption='Fire Brigade in action', use_column_width=True)
+
     st.write("# London Fire Brigade Project")
 
-    st.write("La brigade des pompiers de Londres, comme mentionné dans la fiche projet est l’une des plus grandes au monde.")
-    st.write("Dans le cadre de notre projet de recherche, nous devrons estimer et analyser les temps de réponse et d’intervention de la brigade.") 
-    st.write("Les sources de données utilisées pour répondre à cette problématique proviennent du site ‘London Datastore’ et sont rafraichies sur une base mensuelle.")
-    st.write("Elles fournissent le détail des incidents traités depuis janvier 2009.") 
+    st.write("""
+    Dans le cadre de ce projet, notre objectif principal est d'analyser et d'estimer les temps de réponse et de mobilisation de la 
+             Brigade des Pompiers de Londres. En tant que service d'incendie et de sauvetage le plus actif du Royaume-Uni, 
+             la Brigade des Pompiers de Londres joue un rôle crucial dans la sécurité et la protection des citoyens de la ville. 
+             Forte de son expertise et de son expérience, elle est également reconnue comme l'une des plus grandes organisations 
+             de lutte contre l'incendie et de sauvetage au niveau mondial.
+""")
 
 
-    st.sidebar.success("Select a demo above.")
+    st.write(""" 
+            À travers cette étude, nous cherchons à mieux comprendre les dynamiques opérationnelles de la Brigade des Pompiers de 
+             Londres afin d'optimiser ses interventions et de renforcer sa capacité à répondre efficacement aux situations d'urgence. 
+""")
+    st.sidebar.success("Agenda")
 
     st.markdown(
         """
-        Streamlit is an open-source app framework built specifically for
-        Machine Learning and Data Science projects.
-        **👈 Select a demo from the sidebar** to see some examples
-        of what Streamlit can do!
-        ### Want to learn more?
-        - Check out [streamlit.io](https://streamlit.io)
-        - Jump into our [documentation](https://docs.streamlit.io)
-        - Ask a question in our [community
-          forums](https://discuss.streamlit.io)
-        ### See more complex demos
-        - Use a neural net to [analyze the Udacity Self-driving Car Image
-          Dataset](https://github.com/streamlit/demo-self-driving)
-        - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
+        ### Sources des données : London Datastore
+        - Survenance des [Incidents](https://data.london.gov.uk/dataset/london-fire-brigade-incident-records)
+        - Enregistrement des [Mobilisations](https://data.london.gov.uk/dataset/london-fire-brigade-mobilisation-records)
+        
     """
     )
 
