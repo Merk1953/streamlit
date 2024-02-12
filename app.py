@@ -1,15 +1,16 @@
 import streamlit as st
-from pages.Contexte_et_enjeux import contexte
-from pages.Analyse_des_données import analyse
+from pages import P0_Contexte_et_enjeux, P1_Analyse_des_données 
 
-st.set_page_config(page_title="Mon application Streamlit", page_icon=":fire:")
-# Afficher les onglets dans la barre latérale
+def main():
+    st.sidebar.title("Agenda")
+    page = st.sidebar.radio("Choisissez une page", options=["Contexte et enjeux", "Analyse des données"])
 
-page = st.sidebar.radio("", options=['Contexte', 'Analyse des données'])
-    
 # Afficher le contenu de la page sélectionnée
-if page == "Contexte":
-    contexte()
-    
-if page == "Analyse des données":
-        analyse()
+    if page == "Contexte et enjeux":
+        P0_Contexte_et_enjeux.contexte()
+    elif page == "Analyse des données":
+        P1_Analyse_des_données.analyse()
+
+if __name__ == "__main__":
+    main()
+
