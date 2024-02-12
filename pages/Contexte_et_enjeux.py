@@ -4,10 +4,10 @@ from streamlit.logger import get_logger
 
 
 def contexte():
-    st.set_page_config(
+    """st.set_page_config(
         page_title="London Fire Brigade Project",
         page_icon="🎆",
-    )
+    )"""
 
     st.image("Images/LFB_image.png", caption='Fire Brigade in action', use_column_width=True) 
     st.write("# London Fire Brigade Project")
@@ -25,7 +25,7 @@ def contexte():
             À travers cette étude, nous cherchons à mieux comprendre les dynamiques opérationnelles de la Brigade des Pompiers de 
              Londres afin d'optimiser ses interventions et de renforcer sa capacité à répondre efficacement aux situations d'urgence. 
 """)
-    st.sidebar.success("Agenda")
+    
 
            
     st.markdown(

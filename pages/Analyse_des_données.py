@@ -8,7 +8,7 @@ from streamlit.hello.utils import show_code
 import os
 
 def analyse():
-    st.set_page_config(page_title="Analyse des données", page_icon="📊")
+    #st.set_page_config(page_title="Analyse des données", page_icon="📊")
 
     st.image("Images/Data_analyse.png", width=400)   
     st.markdown("# Analyse des données")
