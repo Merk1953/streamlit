@@ -1,6 +1,4 @@
 import streamlit as st
-from streamlit.logger import get_logger
-
 
 
 def contexte():

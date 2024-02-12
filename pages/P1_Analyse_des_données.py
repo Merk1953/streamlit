@@ -4,8 +4,7 @@ from typing import Any
 import numpy as np
 import pandas as pd
 import streamlit as st
-from streamlit.hello.utils import show_code
-import os
+
 
 def analyse():
     #st.set_page_config(page_title="Analyse des données", page_icon="📊")
