@@ -10,7 +10,7 @@ def contexte():
     )"""
 
     st.image("Images/LFB_image.png", caption='Fire Brigade in action', use_column_width=True) 
-    st.write("# London Fire Brigade Project")
+    st.title("London Fire Brigade Project")
 
     st.write("""
     Dans le cadre de ce projet, notre objectif principal est d'analyser et d'estimer les temps de réponse et de mobilisation de la 

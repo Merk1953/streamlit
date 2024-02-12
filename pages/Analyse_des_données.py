@@ -11,8 +11,8 @@ def analyse():
     #st.set_page_config(page_title="Analyse des données", page_icon="📊")
 
     st.image("Images/Data_analyse.png", width=400)   
-    st.markdown("# Analyse des données")
-    st.sidebar.header("Données à disposition")
+    st.title("Analyse des données")
+    st.sidebar.header("Données")
     st.write(
         """L'étape primordiale avant une data visualisation est la compréhension des données : 
         nous disposions de 2 datasets avec chacun leur métadonnées. 
