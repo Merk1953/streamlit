@@ -9,7 +9,7 @@ import streamlit as st
 def analyse():
     #st.set_page_config(page_title="Analyse des données", page_icon="📊")
 
-    st.image("Images/Data_analyse.png", width=400)   
+    st.image("Images/Data_analyse.png", width=500)   
     st.title("Analyse des données")
     st.sidebar.header("Données")
     st.write(
