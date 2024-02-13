@@ -17,14 +17,14 @@ elif onglet == "Onglet 3":
     st.write("Contenu de l'onglet 3")
 elif onglet == "Démo":
     
-    df = pd.read_csv("Data/features3.csv")
+    df = pd.read_csv("Data/features3_bis.csv")
     df['PropertyCategory_Non Residential'] = df['PropertyCategory_Non Residential'].astype(int)
     df['PropertyCategory_Other Residential'] = df['PropertyCategory_Other Residential'].astype(int)
     df['PropertyCategory_Outdoor'] = df['PropertyCategory_Outdoor'].astype(int)
     df['PropertyCategory_Road Vehicle'] = df['PropertyCategory_Road Vehicle'].astype(int)
 
     
-    y_train = pd.read_csv("Data/target3.csv")
+    y_train = pd.read_csv("Data/target3_bis.csv")
     y_train = y_train.apply(pd.to_numeric, errors='coerce')
 
     # Afficher le formulaire pour entrer les valeurs des variables explicatives
