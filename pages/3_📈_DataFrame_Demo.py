@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-
+import joblib
 
 # Créer les onglets
 with st.sidebar:
@@ -17,57 +17,65 @@ elif onglet == "Onglet 3":
     st.write("Contenu de l'onglet 3")
 elif onglet == "Démo":
     
-    df = pd.read_csv("Data/features3_bis.csv")
-    df['PropertyCategory_Non Residential'] = df['PropertyCategory_Non Residential'].astype(int)
-    df['PropertyCategory_Other Residential'] = df['PropertyCategory_Other Residential'].astype(int)
-    df['PropertyCategory_Outdoor'] = df['PropertyCategory_Outdoor'].astype(int)
-    df['PropertyCategory_Road Vehicle'] = df['PropertyCategory_Road Vehicle'].astype(int)
+    # Charger le modèle entraîné
+    regressor_lin = joblib.open('Model/regressor_lin.joblib')  
 
-    
-    y_train = pd.read_csv("Data/target3_bis.csv")
-    y_train = y_train.apply(pd.to_numeric, errors='coerce')
+    # Variables ProperCase et StopCodeDescription et PropertyCategory
+    proper_case_values = ["Barnet", "Bromley", "Camden", "Enfield", "Hillingdon", "Kensington And Chelsea", "Lambeth", "Southwark", "Tower Hamlets"]
+    stop_code_description_values = ["AFA", "False alarm - Good intent"]
+    property_category_values = ["Non Residential", "Other Residential", "Outdoor", "Road Vehicle"]
 
-    # Afficher le formulaire pour entrer les valeurs des variables explicatives
+    # Mois, année, jour de la semaine et heure de la journée
+    months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    years = [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023]  
+    days_of_week = [1, 2, 3, 4, 5, 6, 7]
+    hours_of_day = list(range(24))
+
+    # Interface utilisateur avec Streamlit
     st.title("Prédiction de la variable cible avec un modèle de régression linéaire")
     st.write("Entrez les valeurs des variables explicatives :")
 
-    mois = st.number_input(label="Mois", key="mois", min_value=1, max_value=12, format="%d")
-    année = st.number_input(label="Année", key="année", min_value=2009, format="%d")
-    jour_sem_num = st.number_input(label="Jour de la semaine (Numéro 1-7)", key="jour_sem_num", min_value=1, max_value=7, format="%d")
-    hour_of_call = st.number_input(label="Heure d'appel", key="hour_of_call", min_value=0, step=1, format="%d")
-    num_stations = st.number_input(label="Nombre de stations avec pompes intervenantes", key="num_stations", min_value=1, max_value=10,step=1, format="%d")
-    pump_count = st.number_input(label="Nombre de pompes", key="pump_count", min_value=1, step=1, format="%d")
-    pump_hours = st.number_input(label="Nombre d'heures de pompage (arrondies)", key="pump_hours", min_value=1, step=1, format="%d")
-    turnout_time = st.number_input(label="Temps d'intervention (en secondes)", key="turnout_time", min_value=60, step=1, format="%d")
-    pump_order = st.number_input(label="Ordre de la pompe", key="pump_order", min_value=1, step=1, format="%d")
-    property_category_non_residential = st.number_input(label="Catégorie de propriété (non résidentiel 0 : Non,  1 : Oui)", key="property_category_non_residential", step=1, format="%d")
-    property_category_other_residential = st.number_input(label="Catégorie de propriété (autre résidentiel 0 : Non,  1 : Oui)", key="property_category_other_residential", step=1, format="%d")
-    property_category_outdoor = st.number_input(label="Catégorie de propriété (extérieur 0 : Non,  1 : Oui)", key="property_category_outdoor",step=1, format="%d")
-    property_category_road_vehicle = st.number_input(label="Catégorie de propriété (véhicule routier 0 : Non,  1 : Oui)", key="property_category_road_vehicle", step=1, format="%d")
+    # Variables explicatives temporelles 
+    st.write("Variables explicatives temporelles :")
+    jour_sem_num = st.selectbox("Jour de la semaine (Numéro 1-7)", options=days_of_week)
+    mois = st.selectbox("Mois", options=months)
+    année = st.selectbox("Année", options=years)
+    
+    hour_of_call = st.selectbox("Heure d'appel", options=hours_of_day)
+
+    # Variables ProperCase et StopCodeDescription et property category
+    st.write("Variables explicatives de lieu :")
+    proper_case_selected = st.selectbox("Choisissez un qartier de survenance de l'incident", options=proper_case_values)
+    stop_code_description_selected = st.selectbox("Choisissez un type d'incident", options=stop_code_description_values)
+
+    st.write("Variable explicative de type de propriété :")
+    property_category_selected = st.selectbox("Choisissez un type de propriété", options=property_category_values)
+   
+    # Encodage des variables ProperCase, Mois, Année, Jour de la semaine et Heure de la journée
+    proper_case_encoded = [1 if proper_case == proper_case_selected else 0 for proper_case in proper_case_values]
+    mois_encoded = [1 if month == mois else 0 for month in months]
+    année_encoded = [1 if year == année else 0 for year in years]
+    jour_sem_num_encoded = [1 if day == jour_sem_num else 0 for day in days_of_week]
+    hour_of_call_encoded = [1 if hour == hour_of_call else 0 for hour in hours_of_day]
+    property_category_encoded = [1 if category == property_category_selected else 0 for category in property_category_values]
+    stop_code_description_encoded = [1 if code == stop_code_description_selected else 0 for code in stop_code_description_values]
+
+    # Autres variables explicatives 
+    st.write("Autres variables explicatives :")
+    num_stations = st.number_input(label="Nombre de stations avec pompes intervenantes", min_value=1, max_value=10, step=1, format="%d")
+    pump_count = st.number_input(label="Nombre de pompes utilisées", min_value=1, step=1, format="%d")
+    pump_hours = st.number_input(label="Nombre d'heures d'intervention (arrondies)", min_value=1, step=1, format="%d")
+    turnout_time = st.number_input(label="Temps d'intervention (en secondes)", min_value=60, step=1, format="%d")
+    pump_order = st.number_input(label="Numéro de la pompe", min_value=1, step=1, format="%d")
 
     # Créer un tableau NumPy avec les valeurs saisies par l'utilisateur
-    user_input = np.array([[mois, année, jour_sem_num, hour_of_call, num_stations, pump_count, pump_hours,
-                            turnout_time, pump_order, property_category_non_residential,
-                            property_category_other_residential, property_category_outdoor,
-                            property_category_road_vehicle]])
+    user_input = np.array([[*mois_encoded, *année_encoded, *jour_sem_num_encoded, *hour_of_call_encoded, *proper_case_encoded,
+                            *property_category_encoded, *stop_code_description_encoded, num_stations, pump_count, pump_hours,
+                            turnout_time, pump_order]])
 
-    # Charger les données cibles
-    y_train = y_train["FirstPumpArriving_AttendanceTime"].values
-
-    # Charger le modèle de régression linéaire
-    class LinearRegression:
-        def fit(self, X, y):
-            self.coefficients = np.linalg.lstsq(X, y, rcond=None)[0]
-
-        def predict(self, X):
-            return np.dot(X, self.coefficients)
-
-    # Instancier et entraîner le modèle
-    model = LinearRegression()
-    model.fit(df.values, y_train)
-
-    # Prédire la variable cible pour les valeurs saisies par l'utilisateur
-    prediction = model.predict(user_input)
+    # Faire une prédiction avec le modèle chargé
+    prediction = regressor_lin.predict(user_input)
 
     # Afficher la prédiction
-    st.write("La prédiction de la variable cible (FirstPumpArriving_AttendanceTime) est :", prediction[0])
+    st.write("Prédiction de la variable cible :", prediction)
+
