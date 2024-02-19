@@ -18,7 +18,7 @@ elif onglet == "Onglet 3":
 elif onglet == "Démo":
     
     # Charger le modèle entraîné
-    regressor_lin = joblib.open('Model/regressor_lin.joblib')  
+    regressor_lin = joblib.load('Model/regressor_lin.joblib')  
 
     # Variables ProperCase et StopCodeDescription et PropertyCategory
     proper_case_values = ["Barnet", "Bromley", "Camden", "Enfield", "Hillingdon", "Kensington And Chelsea", "Lambeth", "Southwark", "Tower Hamlets"]
