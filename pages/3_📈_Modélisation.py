@@ -60,7 +60,7 @@ if onglet == "Préparation et rappels":
 
 elif onglet == "Modèles étudiés":
     st.title("Modèles étudiés")
-    choix_reg_non_reg = st.radio("Type de modèle", ["Modèles non linéaires", "Modèles linéaires", "Résultats"])
+    choix_reg_non_reg = st.radio("Modèles", ["Modèles non linéaires", "Modèles linéaires", "Résultats"])
     if choix_reg_non_reg == "Modèles non linéaires": 
         st.write(""" Nous avons pris le parti de tester à la fois des modèles non linéaires et des modèles linéaires 
                     du fait des résultats produits lors de la data préparation. """)
