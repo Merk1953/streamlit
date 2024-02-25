@@ -1,0 +1,21 @@
+﻿Variable,Coefficient
+NumStationsWithPumpsAttending,6.313592036
+PumpCount,-12.4738686
+PumpHoursRoundUp,1.015849061
+TurnoutTimeSeconds,22.41117663
+PumpOrder,-14.73009822
+StopCodeDescription_AFA,-13.79101543
+StopCodeDescription_False alarm - Good intent,4.260409595
+PropertyCategory_Non Residential,-5.614680508
+PropertyCategory_Other Residential,-0.510110603
+PropertyCategory_Outdoor,18.19281908
+PropertyCategory_Road Vehicle,0.859675616
+ProperCase_Barnet,6.649389459
+ProperCase_Bromley,4.201801736
+ProperCase_Camden,-1.654718087
+ProperCase_Enfield,8.329067483
+ProperCase_Hillingdon,32.80362499
+ProperCase_Kensington And chelsea,-11.93032525
+ProperCase_Lambeth,-13.46442513
+ProperCase_Southwark,-3.439269333
+ProperCase_Tower Hamlets,-17.13825298

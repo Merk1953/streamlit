@@ -2,11 +2,12 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
+import base64
 
 # Créer les onglets
 with st.sidebar:
     st.title('Navigation')
-    onglet = st.radio("Choisir un onglet", ["Préparation et rappels", "Onglet 2", "Onglet 3", "Démo"])
+    onglet = st.radio("Choisir un onglet", ["Préparation et rappels", "Modèles étudiés", "Onglet 3", "Démo"])
 
 # Afficher le contenu de l'onglet sélectionné
 if onglet == "Préparation et rappels":
@@ -17,7 +18,7 @@ if onglet == "Préparation et rappels":
              learning. Chaque étape a été étudiée pour garantir la robustesse et la fiabilité des résultats.""")
     
     st.write("""Ces modèles bien que délibérément simplistes, ont joué un rôle crucial en offrant une première perspective 
-             sur la dynamique des systèmes sous-jacents""")
+             sur la dynamique des systèmes sous-jacents.""")
     
    
     elements = [
@@ -33,8 +34,69 @@ if onglet == "Préparation et rappels":
 
 
     st.write("## Préparation et rappels")
-elif onglet == "Onglet 2":
-    st.write("Contenu de l'onglet 2")
+    st.write("""Pour rappel, un premier cleaning des NAs et des heures qui ne sont pas des multiples de 60 
+             (d’après la notice de lecture fournie) des deux datasets a produit les résultats suivants""")
+
+    choix_tableau = st.radio("Informations", ["Incidents", "Mobilisations", "Base de travail"])
+    if choix_tableau == "Incidents":
+        st.write("#### Rappel sur la table des Incidents")
+        st.write("- Nombre de lignes : 1 287 593")
+        st.write("- Nombre de colonnes : 21")
+    
+    if choix_tableau == "Mobilisations":
+        st.write("#### Rappel sur la table des Mobilisations")
+        st.write("- Nombre de lignes : 2 227 677")
+        st.write("- Nombre de colonnes : 19")
+
+    if choix_tableau == "Base de travail":
+        st.write("#### Description de la base")
+        st.write("- Nombre de lignes : 1 237 733")
+        st.write("- Nombre de colonnes : 38")
+        st.write("""Après la suppression des variables redondantes, 
+                 il reste 18 colonnes. Mais après dichotomisation et standardisation, on repasse à 222 colonnes.""")
+
+    
+    
+
+elif onglet == "Modèles étudiés":
+    st.title("Modèles étudiés")
+    choix_reg_non_reg = st.radio("Type de modèle", ["Modèles non linéaires", "Modèles linéaires", "Résultats"])
+    if choix_reg_non_reg == "Modèles non linéaires": 
+        st.write(""" Nous avons pris le parti de tester à la fois des modèles non linéaires et des modèles linéaires 
+                    du fait des résultats produits lors de la data préparation. """)
+        st.write("Les premiers modèles simples étudiés sont les suivants :")
+
+        st.write("""- KNN : pour ce modèle, afin de connaître les contributions des variables, nous avons utilisé une permutation afin d’évaluer leur importance en mesurant 
+                 comment le score du modèle change lorsque les valeurs d'une variable sont aléatoirement permutées. 
+                 Cela implique de permuter les valeurs de chaque variable de manière aléatoire, recalculer les prédictions du
+                 modèle et mesurer comment cela affecte les performances du modèle (par exemple, le score R²).
+                 La différence entre les performances avant et après la permutation est utilisée comme mesure de l'importance de la 
+                 variable. """)
+            
+        st.write("- Random Forest : même méthode")
+        st.write("- Decision Tree : même méthode")
+        st.write("- Gradient Boosting : même méthode")
+
+    if choix_reg_non_reg == "Modèles linéaires":
+        st.write("""Pour ce qui est des régressions linéaires, nous pourrions utiliser la même méthode. Cependant, les coefficients 
+                 du modèle sont utilisés comme mesure de l’importance des variables. Ils indiquent déjà la contribution de chaque 
+                 variable à la prédiction de la variable cible. """)
+        st.write("- La régression linéaire : régression linéaire simple")
+        st.write("Les régressions Lasso et Ridge permettent de prévenir le surajustement et d’assurer la stabilité du modèle.")
+        st.write("""- La régression Lasso : elle intègre une pénalité de norme L1 ce qui peut conduire à une sélection des variables en faisant le split 
+                 entre les variables qui ont une contribution nulle sur la prédiction du modèle et celles qui ont un impact 
+                 significatif. """)
+        st.write("""- La régression Ridge : elle intègre une pénalité de norme L2 qui a tendance à réduire l’impact des variables les moins 
+                 importantes plutôt que de les éliminer complètement. Le modèle Ridge est particulièrement utile lorsque les 
+                 variables explicatives sont fortement corrélées entre elles, car il permet de stabiliser les coefficients 
+                 et d'éviter une sensibilité excessive aux fluctuations dans les données. Etant donné les résultats obtenus 
+                 en partie , nous supposons à l’avance que ce modèle ne sera pas d’une grande efficacité.""")
+        
+    if choix_reg_non_reg=="Résultats": 
+        st.write("Les résultats obtenus sont les suivants :")
+        st.image("Model/Résultats modèles naifs.png")
+
+
 elif onglet == "Onglet 3":
     st.write("Contenu de l'onglet 3")
 elif onglet == "Démo":
