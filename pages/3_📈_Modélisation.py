@@ -6,11 +6,33 @@ import joblib
 # Créer les onglets
 with st.sidebar:
     st.title('Navigation')
-    onglet = st.radio("Choisir un onglet", ["Onglet 1", "Onglet 2", "Onglet 3", "Démo"])
+    onglet = st.radio("Choisir un onglet", ["Préparation et rappels", "Onglet 2", "Onglet 3", "Démo"])
 
 # Afficher le contenu de l'onglet sélectionné
-if onglet == "Onglet 1":
-    st.write("Contenu de l'onglet 1")
+if onglet == "Préparation et rappels":
+    st.title("Hypothèses de modélisation")
+    st.write("""L'objectif de cette deuxième partie de rapport est d'offrir une analyse approfondie des résultats obtenus lors de la 
+             modélisation des temps d'intervention de la brigade des pompiers. Notre approche a englobé un processus rigoureux, 
+             débutant par un préprocessing des données et s'étendant jusqu'à l'utilisation de modèles sophistiqués de machine 
+             learning. Chaque étape a été étudiée pour garantir la robustesse et la fiabilité des résultats.""")
+    
+    st.write("""Ces modèles bien que délibérément simplistes, ont joué un rôle crucial en offrant une première perspective 
+             sur la dynamique des systèmes sous-jacents""")
+    
+   
+    elements = [
+    "Entrainement de modèles naïfs pour ne conserver que les variables qui contribuent le plus au modèle",
+    "Réduction de la base aux variables utiles",
+    "Gridsearch CV sur plusieurs modèles linéaires et non linéaires sur le dataset nouvellement créé", 
+    "Sélection des meilleurs modèles", 
+    "Optimisation bayésienne sur les modèles sélectionnés à l’étape précédente"
+]
+    st.write("Les étapes qui nous ont conduit à la sélection du meilleur modèle sont les suivantes :")
+    for element in elements:
+        st.write("- " + element)
+
+
+    st.write("## Préparation et rappels")
 elif onglet == "Onglet 2":
     st.write("Contenu de l'onglet 2")
 elif onglet == "Onglet 3":
