@@ -22,7 +22,7 @@ df_hour2 = pd.read_csv(datafile_hour2)
 
 
 # Bloc de texte sur les données temporelles
-st.sidebar.write("### Données Temporelles")
+st.sidebar.write("### Données")
 
 # Sélecteur pour choisir entre les données temporelles, les corrélations, et les tests statistiques
 selection_text = st.sidebar.selectbox("Comparatif des données entre les 2 tables", ["Données temporelles", "Corrélations"])
@@ -33,11 +33,11 @@ if selection_text == "Données temporelles":
              ou même des temps d'arrivée, on constate visuellement que les distributions se ressemblent même si 
              l'ordre de grandeur est différent.** 
 """)
-    selection = st.sidebar.selectbox("Données temporelles", ["Années", "Heure d'appel", "Temps d'arrivée"])
+    selection = st.sidebar.selectbox("Pas de temps", ["Années", "Heure d'appel", "Temps d'arrivée"])
 
     # Afficher les histogrammes correspondants en fonction de la sélection
     if selection == "Années":
-        st.write("### Répartition du nombre d'appels par année")
+        st.write("### Répartition du nombre d'incidents par année")
         # Tracer les histogrammes des années avec Altair
         histogram_years1 = alt.Chart(df_years1).mark_bar().encode(
             x=alt.X("Modalité:O", title="Année"),
