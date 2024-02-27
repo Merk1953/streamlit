@@ -105,4 +105,33 @@ if choix_inter == "PDP":
              particulière influence les prédictions du modèle est particulièrement utile pour interpréter toutes sortes de 
              modèles. """)
     
+    st.write("Nous avons choisi de prendre quelques variables _parlantes_ du modèle afin de visualiser leur effet sur le temps d'intervention.")
     
+    st.write("""**La variable _TurnoutTime_ correspond au temps où la caserne est alertée et le temps où les camions se mettent 
+             en ordre de marche**""")
+    
+    st.image("Model/pdp_turnouttime.png")
+
+    st.write("On voit bien que l'augmentation du temps de réaction fait croitre le temps d'intervention.")
+
+    st.write("""**La variable _NumStationsWithPumpsAttending _ correspond au nombre de pompes utilisées sur le lieu d'incident.**""")
+    
+    st.image("Model/pdp_numstations.png")
+
+    st.write("Même constat. En effet, plus le nombre de stations intervenantes augmente, plus le temps d'intervention subit le même effet.")
+
+
+    st.write("""**La variable _PumpCount_ correspond au nombre de pompes utilisées sur le lieu d'incident.**""")
+    
+    st.image("Model/pdp_pumpcount.png")
+
+    st.write("Cela semble intuitif car plus il y a de pompes à proximité du lieu de l'incident, plus le temps d'intervention est réduit.")
+
+
+    st.write("""**La variable _StopCodeDescription_AFA_ correspond au type d'incident Fausse Alarme.**""")
+    
+    st.image("Model/pdp_stop_afa.png")
+
+    st.write("""C'est une variable binaire qui indique si l'incident est un "vrai" incident ou si c'est une fausse alerte. 
+             En effet, dès lors qu'il s'agit d'une fausse alerte, il y a un drop qui indique que le temps d'intervention 
+             varie en conséquence. """)
