@@ -7,7 +7,7 @@ import base64
 # Créer les onglets
 with st.sidebar:
     st.title('Navigation')
-    onglet = st.radio("Choisir un onglet", ["Préparation et rappels", "Modèles étudiés", "Onglet 3", "Démo"])
+    onglet = st.radio("Choisir un onglet", ["Préparation et rappels", "Modèles étudiés", "Démo"])
 
 # Afficher le contenu de l'onglet sélectionné
 if onglet == "Préparation et rappels":
@@ -60,7 +60,7 @@ if onglet == "Préparation et rappels":
 
 elif onglet == "Modèles étudiés":
     st.title("Modèles étudiés")
-    choix_reg_non_reg = st.radio("Modèles", ["Modèles non linéaires", "Modèles linéaires", "Résultats"])
+    choix_reg_non_reg = st.radio("Modèles", ["Modèles non linéaires", "Modèles linéaires"])
     if choix_reg_non_reg == "Modèles non linéaires": 
         st.write(""" Nous avons pris le parti de tester à la fois des modèles non linéaires et des modèles linéaires 
                     du fait des résultats produits lors de la data préparation. """)
@@ -92,13 +92,57 @@ elif onglet == "Modèles étudiés":
                  et d'éviter une sensibilité excessive aux fluctuations dans les données. Etant donné les résultats obtenus 
                  en partie , nous supposons à l’avance que ce modèle ne sera pas d’une grande efficacité.""")
         
-    if choix_reg_non_reg=="Résultats": 
+    choix_res = st.radio("Résultats", ["Modèles naïfs", "Contributions", "Gridsearch", "Optimisation bayésienne"])
+    
+    if choix_res == "Modèles naïfs": 
         st.write("Les résultats obtenus sont les suivants :")
-        st.image("Model/Résultats modèles naifs.png")
+        st.dataframe(pd.read_csv("Model/Resultats_modeles_naifs.csv", index_col=0))
+        st.write("""Il faut garder à l’esprit que les régressions linéaires et non linéaires ne sont pas réalisées sur des 
+                 échantillons de tailles équivalentes (~10k lignes pour les modèles non linéaires et toute la base pour les modèles 
+                 linéaires""")
+        st.write("**Aucun modèle non linéaire ne semble produire de bons résultats. Surapprentissage, R2 négatifs…**")
+        st.write("""Pour ce qui est des modèles linéaires, ils semblent tous montrer les mêmes résultats. Le modèle Lasso est celui qui présente le moins de surapprentissage. 
+        Les R2 sont très bas mais le but de cette première étape de trouver les variables les plus contributives. Le modèle Lasso,
+                  de par la pénalité qu’il utilise nous permet de constater quelles sont les variables qui contribuent le plus 
+                 au modèle et vont nous permettre in fine d’affiner nos travaux.   """)
+    if choix_res == "Contributions":
+        st.write("En nous fiant au modèle Lasso simple pour les régresseurs linéaires, on constate qu’en réalité, peu de variables (par rapport au nombre initial) contribuent au modèle : ")
+        st.dataframe(pd.read_csv("Model/Contributions variables.csv", index_col=0)) 
+        
+    if choix_res == "Gridsearch": 
+        st.write(""" Les modèles dits naïfs ont servi de point de départ, offrant une compréhension initiale des relations 
+                 linéaires et non linéaires entre les variables explicatives et les temps d'intervention.""")
+        st.write("""Nous allons donc procéder à une optimisation approfondie des hyperparamètres, via le GridsearchCV  
+                 pour garantir la performance du modèle avec une réduction drastique des dimensions et ce sur tous 
+                 les modèles précédemment écartés dans l’optique de trouver les meilleurs modèles pour résoudre notre 
+                 problématique.  La totalité de la base a été utilisée.""") 
+        st.image("Model/Gridsearch.png", use_column_width=True)
+        st.write("""On constate que les 3 modèles produisent peu ou prou les mêmes résultats. modèles linéaires sont ceux qui 
+                 fournissent les meilleurs résultats compte tenu des postulats de départ. 
+                Nous allons donc procéder à une optimisation bayésienne sur ces derniers, avec les variables sélectionnées.  
+""")
+
+    if choix_res == "Optimisation bayésienne":
+        st.image("Model/Optimisation bayésienne.png", use_column_width=True)
+
+        st.write("""Le tableau montre que les performances des 3 modèles sont identiques. 
+                 Une cross validation opérée entre les 3 modèles avec les hyperparamètres alpha optimaux n’a guère permis 
+                 de faire la différence. """)
+        
+
+        st.write("**Régression Linéaire - Scores de validation croisée**: [0.06869095 0.05452051 0.0522121  0.06098084 0.0585049 ]")
+        st.write("_Moyenne des scores_: 0.05898186039981621")
+        st.write("**Lasso - Scores de validation croisée: [0.06844736 0.05438975 0.05231383 0.06112462 0.05859829]**")
+        st.write("_Moyenne des scores: 0.05897477065676735_")
+        st.write("**Ridge - Scores de validation croisée: [0.06869092 0.05452049 0.05221212 0.06098087 0.05850493]**")
+        st.write("_Moyenne des scores: 0.0589818682672534_") 
+
+        st.write("""Le seul critère de ségrégation serait celui du temps de traitement. Le modèle de régression linéaire simple est celui qui produit des résultats le 
+                 plus rapidement. Il convient de rappeler que le dataset de départ a dû être amputé de beaucoup de variables et 
+                 d’observations. En outre, les variables utilisées dans les modèles ne sont pas très parlantes en termes d’information
+                  orientée. """)
 
 
-elif onglet == "Onglet 3":
-    st.write("Contenu de l'onglet 3")
 elif onglet == "Démo":
     
     # Charger le modèle entraîné

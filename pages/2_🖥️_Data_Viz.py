@@ -19,8 +19,8 @@ df_times2 = pd.read_csv(datafile_times2)
 df_hour1 = pd.read_csv(datafile_hour1)
 df_hour2 = pd.read_csv(datafile_hour2)
 
-
-selection = st.sidebar.radio("Type d' analyse", ["Données", "Croisements", "Tests statistiques"])
+st.sidebar.header("Type d'analyse")
+selection = st.sidebar.radio("", ["Données", "Croisements", "Tests statistiques"])
 # Bloc de texte sur les données temporelles
 if selection == "Données":
     st.sidebar.write("### Données")
@@ -151,7 +151,7 @@ if selection == "Données":
                     retard ou encore si les adresses étaient bonnes ou non. Cependant, ces variables sont très peu renseignées.""")
 elif selection == "Croisements": 
     st.sidebar.write("### Croisements")
-    selection_rep = st.sidebar.radio("", ["Par type d'incidents", "Par type d'incidents x temps d'intervention", "Localisation et temps d'intervention"])
+    selection_rep = st.sidebar.selectbox("", ["Par type d'incidents", "Par type d'incidents x temps d'intervention", "Localisation et temps d'intervention"])
     if selection_rep == "Par type d'incidents": 
 
         
