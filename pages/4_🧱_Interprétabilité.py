@@ -15,9 +15,9 @@ st.write("""En effet, l'analyse des graphiques PDP constitue une composante esse
          le comportement global du modèle.
  """)
 
-st.sidebar.header("Interprétabilité")
+#st.sidebar.header("Interprétabilité")
 #choix_inter = st.sidebar.selectbox("", ["Shap", "PDP"])
-st.sidebar.title("Shap")
+#st.sidebar.title("Shap")
 
 st.write("## Shap")
 st.write(""" Si l’on veut prendre un exemple, quand la valeur SHAP associée à une modalité particulière d'une variable 

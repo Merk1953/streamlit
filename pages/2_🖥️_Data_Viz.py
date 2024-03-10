@@ -214,7 +214,7 @@ elif selection == "Tests statistiques":
 
     selection_test = st.sidebar.selectbox("", ["Par mois", "Par jour", "Par heure"])
     if selection_test == "Par mois":
-        st.image("Images/temps d'intervention par mois.png", use_column_width=True)
+        st.image("Images/temps d'intervention par mois hist.png", use_column_width=True)
         st.write("""On constate avec ces statistiques très simples que, en moyenne le temps d’intervention est quasi identique d’un mois sur l’autre et varie 
                  de 8.2 à  8.5%. S’il n y avait pas eu les légendes, nous aurions pu croire que les éléments du pie chart étaient 
                  identiques.""")

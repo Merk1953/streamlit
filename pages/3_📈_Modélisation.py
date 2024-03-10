@@ -41,7 +41,7 @@ if onglet == "Préparation et rappels":
     if choix_tableau == "Incidents":
         st.write("#### Rappel sur la table des Incidents")
         st.write("- Nombre de lignes : 1 287 593")
-        st.write("- Nombre de colonnes : 21")
+        st.write("- Nombre de colonnes : 24")
     
     if choix_tableau == "Mobilisations":
         st.write("#### Rappel sur la table des Mobilisations")
@@ -130,12 +130,12 @@ elif onglet == "Modèles étudiés":
                  de faire la différence. """)
         
 
-        st.write("**Régression Linéaire - Scores de validation croisée**: [0.06869095 0.05452051 0.0522121  0.06098084 0.0585049 ]")
-        st.write("_Moyenne des scores_: 0.05898186039981621")
-        st.write("**Lasso - Scores de validation croisée: [0.06844736 0.05438975 0.05231383 0.06112462 0.05859829]**")
-        st.write("_Moyenne des scores: 0.05897477065676735_")
-        st.write("**Ridge - Scores de validation croisée: [0.06869092 0.05452049 0.05221212 0.06098087 0.05850493]**")
-        st.write("_Moyenne des scores: 0.0589818682672534_") 
+        st.write("**Régression Linéaire - Scores de validation croisée: [0.11237435 0.09124155 0.07112321 0.08179717 0.08109262]**")
+        st.write("_Moyenne des scores: 0.08752578036176409_")
+        st.write("**Lasso - Scores de validation croisée: [0.11235916 0.09123184 0.07113139 0.08180792 0.08109975]**")
+        st.write("_Moyenne des scores: 0.08752601128969313_")
+        st.write("**Ridge - Scores de validation croisée: [0.11237435 0.09124155 0.07112321 0.08179717 0.08109262]**")
+        st.write("_Moyenne des scores: 0.08752578036210472_") 
 
         st.write("""Le seul critère de ségrégation serait celui du temps de traitement. Le modèle de régression linéaire simple est celui qui produit des résultats le 
                  plus rapidement. Il convient de rappeler que le dataset de départ a dû être amputé de beaucoup de variables et 
