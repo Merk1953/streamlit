@@ -83,7 +83,7 @@ if choix_rep =='Histogramme horizontal':
     st.write("""Idem pour les quartiers. Parmi les quartiers conservés, la plupart sont des quartiers centraux autour de la Tamise 
                  à l’exception de 3 qui sont à la périphérie et vastes. """)        
 
-    if choix_rep =="Graphique Shap":
+    if choix_rep == "Graphique Shap":
         st.image('Model/feature importances 2 .png', use_column_width=True)
 
     st.write("""Pour faire écho à ce qui a été dit précédemment sur la variable turnouttime, on constate à quel point elle peut 
