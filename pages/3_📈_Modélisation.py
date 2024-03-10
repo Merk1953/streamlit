@@ -205,5 +205,5 @@ elif onglet == "Démo":
     prediction = regressor_lin.predict(user_input)
 
     # Affichage
-    st.write("Prédiction de la variable cible :", prediction[0][0])
+    st.write("**Prédiction de la variable cible :**", prediction[0][0])
 
