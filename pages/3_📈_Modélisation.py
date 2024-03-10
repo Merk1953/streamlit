@@ -201,9 +201,9 @@ elif onglet == "Démo":
                             *property_category_encoded, *stop_code_description_encoded, num_stations, pump_count, pump_hours,
                             turnout_time, pump_order]])
 
-    # Faire une prédiction avec le modèle chargé
+    # Prédiction avec le modèle chargé
     prediction = regressor_lin.predict(user_input)
 
-    # Afficher la prédiction
+    # Affichage
     st.write("Prédiction de la variable cible :", prediction[0][0])
 
