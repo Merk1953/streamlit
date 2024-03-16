@@ -219,34 +219,18 @@ elif onglet == "Démo":
         'turnout_time': turnout_time
     }
 
-    # Utilisation de la fonction pour standardiser les données d'entrée de l'utilisateur
+
     standardized_user_input = standardize_user_input(user_input2, means_dict, stds_dict)
-    user_input_scaled = np.concatenate((user_input, standardized_user_input), axis=1)
+    standardized_values = np.array(list(standardized_user_input.values()))
+
+ 
+    standardized_values_reshaped = standardized_values.reshape(1, -1)
+    user_input_scaled = np.concatenate((user_input, standardized_values_reshaped), axis=1)
 
     
     # Prédiction avec le modèle chargé
     prediction = regressor_lin.predict(user_input_scaled)
-
-    st.write("Données standardisées :", standardized_user_input)
-    
- 
-    st.write("Variables numériques après la standardisation :")
-
-
-    # Obtenir les noms des colonnes des variables explicatives
-    column_names = ["proper_case_" + value for value in proper_case_values] + \
-                ["property_category_" + value for value in property_category_values] + \
-                ["stop_code_description_" + value for value in stop_code_description_values] + \
-                ["num_stations", "pump_count", "pump_hours", "notional_cost", "turnout_time"]
-
- 
-    coefficients_with_headers = dict(zip(column_names, regressor_lin.coef_[0]))
-
-
-    st.write("Coefficients du modèle :")
-    for column, coefficient in coefficients_with_headers.items():
-        st.write(column, ":", coefficient)
-
+  
     # Affichage
     st.write("**Prédiction de la variable cible :**", prediction[0][0])
 
