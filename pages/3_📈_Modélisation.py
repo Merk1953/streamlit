@@ -146,7 +146,6 @@ elif onglet == "Modèles étudiés":
 
 elif onglet == "Démo":
     
-
     
     # Chargement du modèle
     regressor_lin = joblib.load('Model/regressor_lin.joblib')
@@ -169,30 +168,84 @@ elif onglet == "Démo":
     stop_code_description_encoded = [1 if code == stop_code_description_selected else 0 for code in stop_code_description_values]
     property_category_encoded = [1 if category == property_category_selected else 0 for category in property_category_values]
 
+
     # Autres variables explicatives
     st.write("**Autres variables explicatives :**")
 
     # Collecte des variables
     num_stations = st.number_input(label="Nombre de stations avec pompes intervenantes", min_value=1, max_value=10, step=1, format="%d", key="num_stations")
     pump_count = st.number_input(label="Nombre de pompes utilisées", min_value=1, step=1, format="%d", key="pump_count")
-    pump_hours = st.number_input(label="Nombre d'heures d'intervention (arrondies)", min_value=1, step=1, format="%d", key="pump_hours")
+    pump_hours = st.number_input(label="Nombre d'heures d'intervention (arrondies)", min_value=1, max_value=24*60, step=1, format="%d", key="pump_hours") * 60
     notional_cost = st.number_input(label="Coût notionnel (£)", min_value=0.0, step=1.0, format="%.2f", key="notional_cost")
     turnout_time = st.number_input(label="Temps d'intervention (en secondes)", min_value=60, step=1, format="%d", key="turnout_time")
 
-    # Mettre les variables dans un tableau NumPy
+  
     user_input = np.array([[*proper_case_encoded, *property_category_encoded, *stop_code_description_encoded]])
 
-    # Standardisation des variables numériques
-    scaler = StandardScaler()
-    variables_a_standardiser = np.array([[num_stations, pump_count, pump_hours, notional_cost, turnout_time]])
-    user_input_scaled = np.concatenate((user_input, scaler.fit_transform(variables_a_standardiser)), axis=1)
+    means_dict = {
+    'num_stations': 1.311029,
+    'pump_count': 1.480532,
+    'pump_hours': 60.275488,
+    'notional_cost': 311.731550,
+    'turnout_time': 78.760321
+}
 
+    stds_dict = {
+    'num_stations': 0.556083,
+    'pump_count': 0.694558,
+    'pump_hours': 27.297307,
+    'notional_cost': 143.869867,
+    'turnout_time': 45.250354
+}
+
+    def standardize_user_input(user_input, means_dict, stds_dict):
+        standardized_user_input = {}
+        for variable, value in user_input.items():
+            if variable in means_dict and variable in stds_dict:
+                mean = means_dict[variable]
+                std = stds_dict[variable]
+                standardized_value = (value - mean) / std
+                standardized_user_input[variable] = standardized_value
+            else:
+                standardized_user_input[variable] = value  
+        return standardized_user_input
+
+    # Collecte des variables d'entrée de l'utilisateur
+    user_input2 = {
+        'num_stations': num_stations,
+        'pump_count': pump_count,
+        'pump_hours': pump_hours,
+        'notional_cost': notional_cost,
+        'turnout_time': turnout_time
+    }
+
+    # Utilisation de la fonction pour standardiser les données d'entrée de l'utilisateur
+    standardized_user_input = standardize_user_input(user_input2, means_dict, stds_dict)
+    user_input_scaled = np.concatenate((user_input, standardized_user_input), axis=1)
+
+    
     # Prédiction avec le modèle chargé
     prediction = regressor_lin.predict(user_input_scaled)
 
-    # Affichage de la prédiction
-    #st.write("**Prédiction de la variable cible :**", prediction[0])
+    st.write("Données standardisées :", standardized_user_input)
+    
+ 
+    st.write("Variables numériques après la standardisation :")
 
+
+    # Obtenir les noms des colonnes des variables explicatives
+    column_names = ["proper_case_" + value for value in proper_case_values] + \
+                ["property_category_" + value for value in property_category_values] + \
+                ["stop_code_description_" + value for value in stop_code_description_values] + \
+                ["num_stations", "pump_count", "pump_hours", "notional_cost", "turnout_time"]
+
+ 
+    coefficients_with_headers = dict(zip(column_names, regressor_lin.coef_[0]))
+
+
+    st.write("Coefficients du modèle :")
+    for column, coefficient in coefficients_with_headers.items():
+        st.write(column, ":", coefficient)
 
     # Affichage
     st.write("**Prédiction de la variable cible :**", prediction[0][0])
