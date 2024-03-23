@@ -40,7 +40,7 @@ def analyse():
             st.dataframe(pd.read_csv("Data/Incidents_dico.csv", index_col=0))
 
             st.write("###### La table contient 2 227 677 entrées.")
-            st.write(""" Elle contient des détails sur les incidents traités depuis 2009.Elles incluent des informations 
+            st.write(""" Elle contient des détails sur les incidents traités depuis 2009. Elles incluent des informations 
             importantes telles que la date, le lieu de l’incident et le type d’incident traité. Cette base de données constituera 
             la pierre angulaire de notre analyse car elle nous permet de comprendre la nature des situations auxquelles les pompiers 
             de Londres sont confrontés.  
@@ -97,7 +97,7 @@ def analyse():
             st.write(" La règle de gestion est la suivante :")
             st.write("- Très faibles valeurs de NaN => suppression des lignes concernées")
             st.write("- Très fortes valeurs de NaN => suppression des variables concernées")
-            st.write("De plus, parfois certaines variables sont redondantes et apportent la même information.")
+            st.write("Un constat a été fait concernant certaines variables qui sont redondantes et apportent donc la même information. Il convient de les supprimer.")
             st.write("Voici donc un tableau récapitulatif qui reprend la liste des variables dont on se sépare et en détaille les raisons :")
             st.dataframe(pd.read_csv("Data/NaN/Synt_na.csv", index_col=0))
 
@@ -107,8 +107,8 @@ def analyse():
         if choix_gestion_stat == "Incidents":
             st.dataframe(pd.read_csv("Data/Stat_desc_inc.csv", index_col=0))
             st.write("""On constate  qu’en moyenne,  les pompiers mettent 5.25 minutes à arriver sur les lieux de l’incident et 
-                    qu’il faut que 1.3 stations envoient un contingent et que cela représente 1.5 camions. 
-                    La médiane du temps d’intervention reste proche de la moyenne ce qui suggère mois d’asymétrie des données. 
+                    qu’il faut que 1.3 stations interviennent et que cela nécéssite l'utilisation de 1.5 pompes à incendie environ. 
+                    La médiane du temps d’intervention reste proche de la moyenne ce qui suggère moins d’asymétrie des données. 
                     La moyenne étant une mesure de centralité qui est sensible aux valeurs extrêmes et la médiane étant plus robuste aux valeurs extrêmes, leur proximité suggère que les valeurs aberrantes n’ont pas un impact significatif sur la mesure de la centralité en ce qui concerne le temps d’arrivée. 
     """)
             

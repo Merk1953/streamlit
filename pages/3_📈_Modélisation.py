@@ -5,7 +5,7 @@ import joblib
 import base64
 from sklearn.preprocessing import StandardScaler
 
-# Créer les onglets
+# Onglets
 with st.sidebar:
     st.title('Navigation')
     onglet = st.radio("Choisir un onglet", ["Préparation et rappels", "Modèles étudiés", "Démo"])
@@ -90,8 +90,7 @@ elif onglet == "Modèles étudiés":
         st.write("""- La régression Ridge : elle intègre une pénalité de norme L2 qui a tendance à réduire l’impact des variables les moins 
                  importantes plutôt que de les éliminer complètement. Le modèle Ridge est particulièrement utile lorsque les 
                  variables explicatives sont fortement corrélées entre elles, car il permet de stabiliser les coefficients 
-                 et d'éviter une sensibilité excessive aux fluctuations dans les données. Etant donné les résultats obtenus 
-                 en partie , nous supposons à l’avance que ce modèle ne sera pas d’une grande efficacité.""")
+                 et d'éviter une sensibilité excessive aux fluctuations dans les données.""")
         
     choix_res = st.radio("Résultats", ["Modèles naïfs", "Contributions", "Gridsearch", "Optimisation bayésienne"])
     
@@ -115,10 +114,10 @@ elif onglet == "Modèles étudiés":
                  linéaires et non linéaires entre les variables explicatives et les temps d'intervention.""")
         st.write("""Nous allons donc procéder à une optimisation approfondie des hyperparamètres, via le GridsearchCV  
                  pour garantir la performance du modèle avec une réduction drastique des dimensions et ce sur tous 
-                 les modèles précédemment écartés dans l’optique de trouver les meilleurs modèles pour résoudre notre 
+                 les modèles précédemment sélectionnés dans l’optique de trouver les meilleurs modèles pour résoudre notre 
                  problématique.  La totalité de la base a été utilisée.""") 
         st.image("Model/Gridsearch.png", use_column_width=True)
-        st.write("""On constate que les 3 modèles produisent peu ou prou les mêmes résultats. modèles linéaires sont ceux qui 
+        st.write("""On constate que les 3 modèles produisent peu ou prou les mêmes résultats. Les modèles linéaires sont ceux qui 
                  fournissent les meilleurs résultats compte tenu des postulats de départ. 
                 Nous allons donc procéder à une optimisation bayésienne sur ces derniers, avec les variables sélectionnées.  
 """)

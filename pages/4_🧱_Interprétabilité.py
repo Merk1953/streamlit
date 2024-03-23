@@ -8,10 +8,6 @@ st.write("""Maintenant que le modèle de régression linéaire a été sélectio
          """)
 
 
-#st.sidebar.header("Interprétabilité")
-#choix_inter = st.sidebar.selectbox("", ["Shap", "PDP"])
-#st.sidebar.title("Shap")
-
 st.write("## Shap")
 st.write(""" Si l’on veut prendre un exemple, quand la valeur SHAP associée à une modalité particulière d'une variable 
              augmente, cela signifie que la présence ou l'augmentation de cette modalité a une contribution positive à la 
@@ -61,27 +57,24 @@ if choix_rep =='Histogramme horizontal':
                   En effet, il semble logique que la caractéristiques de temps de réponse influence considérablement le temps 
                  d’intervention. """)
         
-    st.write("""Vient ensuite le nombre de pompes utilisées. En effet, plus il y a de pompes près du lieu d’incident,  
-                 plus grandes seront les chances de diminuer le temps d’intervention. Il y va de même pour le nombre de camions 
-                 en service.""")
+    st.write("""Vient ensuite le nombre de pompes utilisées. En effet, plus il y a de pompes près du lieu d’incident,
+                plus grandes seront les chances de diminuer le temps d’intervention.""")
         
-    st.write("""Dans une moindre mesure, le nombre de stations contactées contribue également en ce 
-                 sens que plus de stations seront contactées, plus grandes seront les chances de diminuer le temps d’intervention. """)
-        
-
-    st.write("""On peut également penser que le fait que la propriété soit non résidentielle fait qu’elle est située en centre-ville 
-                 et qu’elle profite d’un plus grand maillage des casernes de pompiers. """)
+    st.write("""Dans une moindre mesure, le nombre de stations intervenant contribue également en ce sens que plus de stations 
+             seront contactées, plus grandes seront les chances de diminuer le temps d’intervention. """)
 
 
-    st.write("""Idem pour les quartiers. Parmi les quartiers conservés, la plupart sont des quartiers centraux autour de la Tamise 
-                 à l’exception de 3 qui sont à la périphérie et vastes. """)        
+    st.write("""Parmi les quartiers conservés, la plupart sont des quartiers centraux autour de la Tamise à l’exception de 
+             3 qui sont à la périphérie et vastes. Les quartiers les plus centraux sont ceux qui contribuent le plus. 
+             On peut penser qu'une localisation de l'incident en centre-ville contribue plus à la prédictabilité de la 
+             variable cible que les quartiers périphériques.  """)        
 
     if choix_rep == "Graphique Shap":
         st.image('Model/feature importances 2 .png', use_column_width=True)
 
-    st.write("""Pour faire écho à ce qui a été dit précédemment sur la variable turnouttime, on constate à quel point elle peut 
-                 contribuer aussi bien à la hausse et à la baisse au temps d’intervention. 0 l’instar de turnouttime, le graphique
-                 montre la grande amplitude d’influence qu’a aussi la variable du nombre de pompes à l’intervention. 
+    st.write("""Pour faire écho à ce qui a été dit précédemment sur la variable _TurnoutTimeSeconds_, on constate à quel point elle peut 
+                 contribuer aussi bien à la hausse et à la baisse au temps d’intervention. A l’instar de _TurnoutTimeSeconds_, 
+                le graphique montre la grande amplitude d’influence qu’a aussi la variable du nombre de pompes à l’intervention. 
                  Elle contribue très positivement et très négativement également. Cela signifie que la variable à expliquer 
                  est très sensible à cette dernière et rejoint le point évoqué sur la magnitude. """)
         

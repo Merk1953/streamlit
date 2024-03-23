@@ -128,13 +128,13 @@ if selection == "Données":
         selection_cor = st.sidebar.selectbox("Table", ["Incidents", "Mobilisations"])
         # Heatmap de la matrice de corrélation 
         if selection_cor == "Incidents": 
-            # Chemin vers l'image
+            
             image_path1 = "Images/matrice_correlation_incidents.png"
 
             # Affichage
             st.image(image_path1, caption= "Heatmap des données numériques de la table des incidents", use_column_width=True)
-            st.write("""On constate une zone de corrélation forte dans le carré bas et à droite entre le nombre de camions 
-                    en intervention, le nombre total de camions, le PumpHoursRoundUp et le Notional Cost. Ces variables forment 
+            st.write("""On constate une zone de corrélation forte dans le carré bas et à droite et plus généralement entre les variables qui intègrent 
+                    la notion de pompe à incendie, le PumpHoursRoundUp et le Notional Cost. Ces variables forment 
                     un cluster et pourraient par exemple être traitées ensemble. Entre le PumpHoursRoundUp et le Notional Cost, 
                     la corrélation est proche de 1 ce qui est normal car ils ont une relation de type aX. 
                     Il semble y avoir une corrélation nulle dans le reste du carré ce qui indique une absence de relation linéaire entre les variables. 
@@ -207,10 +207,8 @@ elif selection == "Tests statistiques":
     st.write("### On souhaite savoir si le pas de temps fait que les temps d'intervention diffèrent.")
 
     st.write(""" _L'ANOVA est une technique statistique utilisée pour analyser si les moyennes de trois groupes ou plus sont 
-             égales ou différentes dans le contexte de plusieurs groupes ou conditions. 
-             C'est un outil précieux dans l'analyse des données pour répondre à des questions telles 
-             que "Y a-t-il une différence significative entre les groupes ?" ou 
-             "Quel groupe est significativement différent des autres ?"._""" )
+             égales ou différentes dans le contexte de plusieurs groupes ou conditions et permet de répondre à la question suivante : 
+             "Y a-t-il une différence significative entre les groupes ?.""" )
 
     selection_test = st.sidebar.selectbox("", ["Par mois", "Par jour", "Par heure"])
     if selection_test == "Par mois":
