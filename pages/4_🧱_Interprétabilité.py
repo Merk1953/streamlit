@@ -70,7 +70,7 @@ if choix_rep =='Histogramme horizontal':
              variable cible que les quartiers périphériques.  """)        
 
 if choix_rep == "Graphique Shap":
-        st.image('Model/feature importances 2.png', use_column_width=True)
+    st.image('Model/feature importances 2.png', use_column_width=True)
 
     st.write("""Pour faire écho à ce qui a été dit précédemment sur la variable _TurnoutTimeSeconds_, on constate à quel point elle peut 
                  contribuer aussi bien à la hausse et à la baisse au temps d’intervention. A l’instar de _TurnoutTimeSeconds_, 
