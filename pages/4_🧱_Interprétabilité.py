@@ -69,7 +69,7 @@ if choix_rep =='Histogramme horizontal':
              On peut penser qu'une localisation de l'incident en centre-ville contribue plus à la prédictabilité de la 
              variable cible que les quartiers périphériques.  """)        
 
-    if choix_rep == "Graphique Shap":
+if choix_rep == "Graphique Shap":
         st.image('Model/feature importances 2.png', use_column_width=True)
 
     st.write("""Pour faire écho à ce qui a été dit précédemment sur la variable _TurnoutTimeSeconds_, on constate à quel point elle peut 
