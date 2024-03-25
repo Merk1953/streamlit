@@ -69,7 +69,7 @@ def main_fin():
     
 
     texte = """
-    En tant que producteur de données, la qualité de l'information que vous fournissez est essentielle pour garantir la pertinence et la fiabilité de vos services. Face à des données de mauvaise qualité, plusieurs pistes de réflexion peuvent être envisagées :
+    En tant que producteur de données, la qualité de l'information qui est fournie est essentielle pour garantir la pertinence et la fiabilité des données. De fait, face à des données de mauvaise qualité, plusieurs pistes de réflexion peuvent être envisagées :
 
     1. **Évaluation et Transparence :** Fournir une évaluation transparente de la qualité des données, en identifiant les lacunes et les erreurs, afin de maintenir la confiance des utilisateurs.
 
