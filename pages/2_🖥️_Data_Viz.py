@@ -162,9 +162,8 @@ elif selection == "Croisements":
                   changent, les répartitions restent peu ou prou identiques. """)
         st.image("Images/répartition type d'incidents.png",use_column_width=True)
     elif selection_rep == "Par type d'incidents x temps d'intervention": 
-        st.write("On a grosso modo un temps d’intervention moyen identique excepté pour le Special Operations Room.") 
-
-        st.write("Un test anova peut nous permettre de valider ou d’invalider statistiquement notre constat.")
+        
+        st.write("Lorsque l'on croise le type d'incident avec le temps d'intervention, on obtient le graphe suivant :")
         
         st.image("Images/type d'incident x temps d'intervention.png", use_column_width=True)
 
