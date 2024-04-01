@@ -36,7 +36,7 @@ if onglet == "Préparation et rappels":
 
     st.write("## Préparation et rappels")
     st.write("""Pour rappel, un premier cleaning des NAs et des heures qui ne sont pas des multiples de 60 
-             (d’après la notice de lecture fournie) des deux datasets a produit les résultats suivants""")
+             (d’après la notice de lecture fournie) des deux datasets a produit les résultats suivants :""")
 
     choix_tableau = st.radio("Informations", ["Incidents", "Mobilisations", "Base de travail"])
     if choix_tableau == "Incidents":
