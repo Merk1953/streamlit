@@ -138,7 +138,7 @@ if selection == "Données":
                     un cluster et pourraient par exemple être traitées ensemble. Entre le PumpHoursRoundUp et le Notional Cost, 
                     la corrélation est proche de 1 ce qui est normal car ils ont une relation de type aX. 
                     Il semble y avoir une corrélation nulle dans le reste du carré ce qui indique une absence de relation linéaire entre les variables. 
-                    On peut donc postuler que ces variables sont indépendantes les unes des autres. La question se pose maintenant sur la sélection des variables, i.e. si nous allons choisir seulement les variables qui ont une corrélation significative avec la variable cible. 
+                    On peut donc postuler que ces variables sont indépendantes les unes des autres. 
     """)
         elif selection_cor == "Mobilisations": 
             
