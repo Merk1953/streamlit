@@ -46,7 +46,7 @@ if onglet == "Préparation et rappels":
     
     if choix_tableau == "Mobilisations":
         st.write("#### Rappel sur la table des Mobilisations")
-        st.write("- Nombre de lignes : 2 227 677")
+        st.write("- Nombre de lignes : 2 156 847")
         st.write("- Nombre de colonnes : 19")
 
     if choix_tableau == "Base de travail":
