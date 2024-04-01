@@ -39,7 +39,7 @@ def analyse():
             st.write("#### Contenu du dictionnaire des Incidents")
             st.dataframe(pd.read_csv("Data/Incidents_dico.csv", index_col=0))
 
-            st.write("###### La table contient 2 227 677 entrées.")
+            st.write("###### La table contient 1 602 834 entrées.")
             st.write(""" Elle contient des détails sur les incidents traités depuis 2009. Elles incluent des informations 
             importantes telles que la date, le lieu de l’incident et le type d’incident traité. Cette base de données constituera 
             la pierre angulaire de notre analyse car elle nous permet de comprendre la nature des situations auxquelles les pompiers 
@@ -53,7 +53,7 @@ def analyse():
             st.write("#### Contenu du dictionnaire des Mobilisations")
             st.dataframe(pd.read_csv("Data/Mob_dico.csv", index_col=0))
 
-            st.write("###### La table contient : 1 602 834 entrées.")
+            st.write("###### La table contient : 2 227 677 entrées.")
             st.write(""" Le deuxième jeu de données fournit des informations sur chaque camion de pompiers envoyé sur les lieux d’un incident depuis janvier 2009. Il inclut 
                     notamment des détails sur l’appareil mobilisé, son lieu de déploiement et les heures d’arrivées sur les lieux de 
                     l’incident.  
