@@ -34,6 +34,6 @@ SecondPumpArriving_AttendanceTime,Second Pump attendance time in seconds,,float6
 SecondPumpArriving_DeployedFromStation,Second Pump deployed from station,New Cross,object,Y,Station à partir de laquelle le 2ème camion de pompiers part aide supplémentaire 
 NumStationsWithPumpsAttending,Number of stations with pumps in attendance,1,float64,N,Nombre de stations qui interviennent 
 NumPumpsAttending,Number of pumps in attendance,1,float64,N,Nombre de camions qui interviennent
-PumpCount,,1,int64,N,Nombre de camions en service
+PumpCount,,1,int64,N,Nombre de camions qui interviennent (delta avec la variable précédente)
 PumpHoursRoundUp,Time spent at incident by pumps. rounded up to nearest hour,1,int64,N,Temps passé sur les lieux de l incident par les pompes
 Notional Cost (£),Time spent multiplied by notional annual cost of a pump,328,int64,N,Temps passé multiplié par le coût annuel théorique d une pompe
