@@ -172,8 +172,8 @@ elif onglet == "Démo":
     st.write("**Autres variables explicatives :**")
 
     # Collecte des variables
-    num_stations = st.number_input(label="Nombre de stations avec pompes intervenantes", min_value=1, max_value=10, step=1, format="%d", key="num_stations")
-    pump_count = st.number_input(label="Nombre de pompes utilisées", min_value=1, step=1, format="%d", key="pump_count")
+    num_stations = st.number_input(label="Nombre de stations intervenantes", min_value=1, max_value=10, step=1, format="%d", key="num_stations")
+    pump_count = st.number_input(label="Nombre de pompes à incendie utilisées", min_value=1, step=1, format="%d", key="pump_count")
     pump_hours = st.number_input(label="Nombre d'heures d'intervention (arrondies)", min_value=1, max_value=24*60, step=1, format="%d", key="pump_hours") * 60
     notional_cost = st.number_input(label="Coût notionnel (£)", min_value=0.0, step=1.0, format="%.2f", key="notional_cost")
     turnout_time = st.number_input(label="Temps d'intervention (en secondes)", min_value=60, step=1, format="%d", key="turnout_time")
