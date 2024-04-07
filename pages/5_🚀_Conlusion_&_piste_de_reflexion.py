@@ -38,14 +38,14 @@ def afficher_piste(piste):
 
 def main():
 
-    st.write('Pour résumer :')
+    st.write('Idéalement, le processus aurait pu être le suivant :')
  
     pistes = [
         (1, "Analyse approfondie des données", "Évaluer la qualité des données pour identifier les lacunes et les erreurs."),
         (2, "Imputation judicieuse", "Remplir les données manquantes en utilisant des techniques adaptées pour préserver la distribution des données."),
         (3, "Traitement des valeurs aberrantes", "Détecter et traiter les valeurs extrêmes pour éviter les biais dans les modèles."),
         (4, "Normalisation et standardisation", "Mettre à l'échelle les données pour les rendre comparables et conformes aux hypothèses du modèle."),
-        (5, "Choix de modèles robustes", "Opter pour des techniques de modélisation plus tolérantes aux données bruitées ou incomplètes."),
+        (5, "Choix de modèles robustes", "Opter pour des techniques de modélisation plus tolérantes aux données incomplètes."),
         (6, "Collecte ciblée de données", "Si possible, compléter l'ensemble de données avec des données supplémentaires pertinentes."),
         (7, "Consultation des experts du domaine", "Collaborer avec les experts pour comprendre la signification des données et identifier les meilleures pratiques.")
     ]

@@ -207,7 +207,7 @@ elif selection == "Tests statistiques":
 
     st.write(""" _L'ANOVA est une technique statistique utilisée pour analyser si les moyennes de trois groupes ou plus sont 
              égales ou différentes dans le contexte de plusieurs groupes ou conditions et permet de répondre à la question suivante : 
-             "Y a-t-il une différence significative entre les groupes ?.""" )
+             "Y a-t-il une différence significative entre les groupes ?._""" )
 
     selection_test = st.sidebar.selectbox("", ["Par mois", "Par jour", "Par heure"])
     if selection_test == "Par mois":
