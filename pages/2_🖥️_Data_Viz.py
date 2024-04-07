@@ -212,8 +212,7 @@ elif selection == "Tests statistiques":
     selection_test = st.sidebar.selectbox("", ["Par mois", "Par jour", "Par heure"])
     if selection_test == "Par mois":
         st.image("Images/temps d'intervention par mois hist.png", use_column_width=True)
-        st.write("""On constate avec ces statistiques très simples que, en moyenne le temps d’intervention est quasi identique d’un mois sur l’autre et varie 
-                 de 8.2 à  8.5%. """)
+        
         st.write("""L’analyse du graphique met en exergue une légère différence d’un mois sur l’autre. Un test statistique permettrait 
                  d’avoir une assise plus précise quant à ce constat. Pour cela, nous allons procéder à un test anova.""" )
 
