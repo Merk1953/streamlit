@@ -82,4 +82,12 @@ if choix_rep =="Echantillons":
     st.write("""On constate que sur 5 échantillons, la variable _TurnoutTime_ contribue le plus en valeur absolue. Idem 
                  pour le nombre de pompes. Cela conforte la conclusion faite au niveau macro. En fait, toutes les autres 
                  variables se comportent comme dans le graphique précédent. """)
-    st.image("Model/feature importances sample.png", use_column_width=True)
+    st.image("Images/shap1.png", use_column_width=True)
+
+    st.image("Images/shap2.png", use_column_width=True)
+
+    st.image("Images/shap3.png", use_column_width=True)
+
+    st.image("Images/shap4.png", use_column_width=True)
+
+    st.image("Images/shap5.png", use_column_width=True)
